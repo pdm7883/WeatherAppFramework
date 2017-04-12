@@ -15,6 +15,9 @@
 		280BAFEF1E9DF857002E2D11 /* WeatherAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280BAFEE1E9DF857002E2D11 /* WeatherAppTests.swift */; };
 		280BAFFA1E9DF8DE002E2D11 /* WeatherAppModelFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 280BAFF91E9DF8DE002E2D11 /* WeatherAppModelFramework.framework */; };
 		280BAFFB1E9DF8DE002E2D11 /* WeatherAppModelFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 280BAFF91E9DF8DE002E2D11 /* WeatherAppModelFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		280BAFFF1E9DFF5E002E2D11 /* UIViewController+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280BAFFE1E9DFF5D002E2D11 /* UIViewController+Alerts.swift */; };
+		280BB0011E9DFF7E002E2D11 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280BB0001E9DFF7E002E2D11 /* UILabel+Extension.swift */; };
+		280BB0031E9DFF99002E2D11 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280BB0021E9DFF99002E2D11 /* UIImageView+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,9 @@
 		280BAFEE1E9DF857002E2D11 /* WeatherAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAppTests.swift; sourceTree = "<group>"; };
 		280BAFF01E9DF857002E2D11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		280BAFF91E9DF8DE002E2D11 /* WeatherAppModelFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WeatherAppModelFramework.framework; sourceTree = "<group>"; };
+		280BAFFE1E9DFF5D002E2D11 /* UIViewController+Alerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alerts.swift"; sourceTree = "<group>"; };
+		280BB0001E9DFF7E002E2D11 /* UILabel+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
+		280BB0021E9DFF99002E2D11 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +108,9 @@
 				280BAFE01E9DF857002E2D11 /* Assets.xcassets */,
 				280BAFE21E9DF857002E2D11 /* LaunchScreen.storyboard */,
 				280BAFE51E9DF857002E2D11 /* Info.plist */,
+				280BAFFE1E9DFF5D002E2D11 /* UIViewController+Alerts.swift */,
+				280BB0001E9DFF7E002E2D11 /* UILabel+Extension.swift */,
+				280BB0021E9DFF99002E2D11 /* UIImageView+Extension.swift */,
 			);
 			path = WeatherApp;
 			sourceTree = "<group>";
@@ -227,7 +236,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				280BB0031E9DFF99002E2D11 /* UIImageView+Extension.swift in Sources */,
+				280BB0011E9DFF7E002E2D11 /* UILabel+Extension.swift in Sources */,
 				280BAFDC1E9DF857002E2D11 /* ViewController.swift in Sources */,
+				280BAFFF1E9DFF5E002E2D11 /* UIViewController+Alerts.swift in Sources */,
 				280BAFDA1E9DF857002E2D11 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -442,6 +454,7 @@
 				280BAFF51E9DF857002E2D11 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		280BAFF61E9DF857002E2D11 /* Build configuration list for PBXNativeTarget "WeatherAppTests" */ = {
 			isa = XCConfigurationList;
@@ -450,6 +463,7 @@
 				280BAFF81E9DF857002E2D11 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
