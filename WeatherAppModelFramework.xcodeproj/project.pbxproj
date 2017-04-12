@@ -10,6 +10,8 @@
 		280BAFB51E9DD5E5002E2D11 /* WeatherAppModelFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 280BAFAB1E9DD5E5002E2D11 /* WeatherAppModelFramework.framework */; };
 		280BAFBA1E9DD5E5002E2D11 /* WeatherAppModelFrameworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280BAFB91E9DD5E5002E2D11 /* WeatherAppModelFrameworkTests.swift */; };
 		280BAFBC1E9DD5E5002E2D11 /* WeatherAppModelFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 280BAFAE1E9DD5E5002E2D11 /* WeatherAppModelFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		280BAFC61E9DD608002E2D11 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280BAFC51E9DD608002E2D11 /* Weather.swift */; };
+		280BAFC81E9DD627002E2D11 /* WeatherAppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280BAFC71E9DD627002E2D11 /* WeatherAppManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +31,8 @@
 		280BAFB41E9DD5E5002E2D11 /* WeatherAppModelFrameworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherAppModelFrameworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		280BAFB91E9DD5E5002E2D11 /* WeatherAppModelFrameworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAppModelFrameworkTests.swift; sourceTree = "<group>"; };
 		280BAFBB1E9DD5E5002E2D11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		280BAFC51E9DD608002E2D11 /* Weather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		280BAFC71E9DD627002E2D11 /* WeatherAppManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherAppManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +76,8 @@
 			isa = PBXGroup;
 			children = (
 				280BAFAE1E9DD5E5002E2D11 /* WeatherAppModelFramework.h */,
+				280BAFC71E9DD627002E2D11 /* WeatherAppManager.swift */,
+				280BAFC51E9DD608002E2D11 /* Weather.swift */,
 				280BAFAF1E9DD5E5002E2D11 /* Info.plist */,
 			);
 			path = WeatherAppModelFramework;
@@ -148,6 +154,7 @@
 				TargetAttributes = {
 					280BAFAA1E9DD5E5002E2D11 = {
 						CreatedOnToolsVersion = 8.2.1;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 					280BAFB31E9DD5E5002E2D11 = {
@@ -196,6 +203,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				280BAFC81E9DD627002E2D11 /* WeatherAppManager.swift in Sources */,
+				280BAFC61E9DD608002E2D11 /* Weather.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,6 +329,7 @@
 		280BAFC01E9DD5E5002E2D11 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -331,6 +341,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = test.com.WeatherAppModelFramework;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -338,6 +349,7 @@
 		280BAFC11E9DD5E5002E2D11 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -356,6 +368,7 @@
 		280BAFC31E9DD5E5002E2D11 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = WeatherAppModelFrameworkTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = test.com.WeatherAppModelFrameworkTests;
@@ -367,6 +380,7 @@
 		280BAFC41E9DD5E5002E2D11 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = WeatherAppModelFrameworkTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = test.com.WeatherAppModelFrameworkTests;

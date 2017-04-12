@@ -2,8 +2,7 @@
 //  WeatherAppModelFramework.h
 //  WeatherAppModelFramework
 //
-//  Created by bell on 4/11/17.
-//  Copyright © 2017 Mukunda Dhirendrachar. All rights reserved.
+//  Created by Mukunda Dhirendrachar on 4/11/17.
 //
 
 #import <UIKit/UIKit.h>
