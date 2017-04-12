@@ -22,16 +22,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         // ideally these should go in localization file to support different geos
         self.title = "Weather App"
         self.textField.delegate = self
-
-        // call framewok methods
-        let obj = WeatherAppManager()
-        obj.getWeatherReport(city: "Cupertino",
-                             success: { (response) in
-                                print("View controller received success response : \(response)")
-                            },
-                             failure: { (error) in
-                                print("View controller received error response : \(error)")
-                            })
     }
 
     override func viewWillAppear(_ animated: Bool) {
