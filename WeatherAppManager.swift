@@ -48,8 +48,7 @@ public class WeatherAppManager {
             return
         }
         
-        var url = serverURL! + city! + "US&APPID=" + key!
-        url = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        let url = serverURL! + city! + "US&APPID=" + key!
         
         // FIXME: prepare target url in a nice custom method and return
         let targetURL = URL(string: url)
@@ -112,7 +111,6 @@ public class WeatherAppManager {
     
     // get weather image
     public func getWeatherImage(imageID: String?, success:@escaping (UIImage?)->(), failure:@escaping (Any)->()) {
-        print("Image to fetch = \(imageID)")
         guard imageID != nil else {
             print("Nil image ID")
             return
@@ -131,18 +129,16 @@ public class WeatherAppManager {
         }
         
         // FIXME: prepare target url in a nice custom method and return
-        let url = serverURL! + "\(imageID!)" + ".png"
+        let url = serverURL! + "\(imageID)" + ".png"
         let targetURL = URL(string: url)
-
         guard targetURL != nil else {
-            print("Returning targetURL is nil = \(targetURL)")
             return
         }
         
         print("Out going request to get image : \(targetURL)")
         let session = URLSession.shared.dataTask(with: targetURL!) {(data, response, error) in
-            guard error == nil else {
-                failure("Received error: \(error)")
+            guard error != nil else {
+                failure("Received error")
                 return
             }
             

@@ -13,22 +13,22 @@ enum JSONSerializationError : Error {
 }
 
 // this model is easy to unit test with XCTest
-public struct Weather {
-    public let city : String?
-    public let cityID : Int?
-    public let location : (latitude: Double, longitude: Double)
-    public let country: String?
-    public let humidity: Int?
-    public let pressure: Int?
-    public let temp: Float?
-    public let maxTemp : Float?
-    public let minTemp : Float?
-    public let clouds : Int?
-    public let speed : Double?
-    public let description : String?
-    public let icon : String?
-    public let sunRise : Double?
-    public let sunSet : Double?
+struct Weather {
+    let city : String?
+    let cityID : Int?
+    let location : (latitude: Double, longitude: Double)
+    let country: String?
+    let humidity: Int?
+    let pressure: Int?
+    let temp: Float?
+    let maxTemp : Float?
+    let minTemp : Float?
+    let clouds : Int?
+    let speed : Double?
+    let description : String?
+    let icon : String?
+    let sunRise : Double?
+    let sunSet : Double?
     
     init(json: [String : Any]) throws {
         guard let main = json["main"] as? [String: Any],
