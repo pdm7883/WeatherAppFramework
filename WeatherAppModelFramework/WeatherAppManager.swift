@@ -29,7 +29,6 @@ public class WeatherAppManager {
     
     // get weather report for a city
     public func getWeatherReport(city: String?, success:@escaping (Any)->(), failure:@escaping (Any)->()) {
-
         let serverURL = getServerURL()
         let key = getAPIKey()
         let city = city
@@ -112,7 +111,49 @@ public class WeatherAppManager {
     
     // get weather image
     public func getWeatherImage(imageID: String?, success:@escaping (UIImage?)->(), failure:@escaping (Any)->()) {
-
+        guard imageID != nil else {
+            print("Nil image ID")
+            return
+        }
+        
+        let serverURL = getDownloadImageBaseURL()
+        guard serverURL != nil else {
+            print("Nil server URL")
+            return
+        }
+        
+        // Retrive image if found in cache
+        if self.isImageCached(icon: imageID!) {
+            // Implement retrieve image from cache logic
+            print("Returning image from cache")
+        }
+        
+        // FIXME: prepare target url in a nice custom method and return
+        let url = serverURL! + "\(imageID)" + ".png"
+        let targetURL = URL(string: url)
+        guard targetURL != nil else {
+            return
+        }
+        
+        print("Out going request to get image : \(targetURL)")
+        let session = URLSession.shared.dataTask(with: targetURL!) {(data, response, error) in
+            guard error != nil else {
+                failure("Received error")
+                return
+            }
+            
+            guard data != nil else {
+                failure("Received nil data ")
+                return
+            }
+            
+            // cache the image
+            self.saveImage(data: data!, iconName: imageID!)
+            DispatchQueue.main.async {
+                success(UIImage(data:data!))
+            }
+        }
+        session.resume()
     }
     
     // MARK: private methods
@@ -128,4 +169,36 @@ public class WeatherAppManager {
         return API_KEY
     }
 
+    fileprivate func getDownloadImageBaseURL() -> String? {
+        var baseURL = baseImageUrl
+        baseURL = baseURL.trimmingCharacters(in: .whitespacesAndNewlines)
+        baseURL = baseURL.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        return baseURL
+    }
+    
+    // if found, get the image from cache
+    fileprivate func isImageCached(icon: String) -> Bool {
+        return FileManager.default.fileExists(atPath: icon)
+    }
+    
+    // save the image in cache folder
+    fileprivate func saveImage(data : Data, iconName icon: String) {
+        let cache = FileManager.cacheDir() as String
+        let folder = cache.appending("/Image") as String
+        if !FileManager.default.fileExists(atPath: folder as String) {
+            do {
+                try FileManager.default.createDirectory(atPath: folder as String, withIntermediateDirectories: true, attributes: nil)
+            } catch {
+                print("Failed to create cache directory for temp file storage")
+            }
+        }
+        
+        let path = URL(fileURLWithPath:folder).appendingPathComponent("\(icon)").path
+        print("Cache Image Path : \(path)")
+        do {
+            try data.write(to: URL(fileURLWithPath: path), options: .atomicWrite)
+        } catch {
+            print("Failed to save Image file")
+        }
+    }
 }
