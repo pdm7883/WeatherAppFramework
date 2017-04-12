@@ -1,0 +1,10 @@
+framework module WeatherAppModelFramework {
+  umbrella header "WeatherAppModelFramework.h"
+
+  export *
+  module * { export * }
+}
+
+module WeatherAppModelFramework.Swift {
+    header "WeatherAppModelFramework-Swift.h"
+}
