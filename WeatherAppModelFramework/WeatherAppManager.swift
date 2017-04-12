@@ -122,9 +122,9 @@ public class WeatherAppManager {
             return
         }
         
-        // Retrive image if found in cache
+        // TODO: Retrive image if found in cache
         if self.isImageCached(icon: imageID!) {
-            // Implement retrieve image from cache logic
+            // Implement retrieve cache logic
             print("Returning image from cache")
         }
         
@@ -155,7 +155,9 @@ public class WeatherAppManager {
         }
         session.resume()
     }
-    
+}
+
+extension WeatherAppManager {
     // MARK: private methods
     
     fileprivate func getServerURL() -> String? {
@@ -168,7 +170,7 @@ public class WeatherAppManager {
     fileprivate func getAPIKey() -> String? {
         return API_KEY
     }
-
+    
     fileprivate func getDownloadImageBaseURL() -> String? {
         var baseURL = baseImageUrl
         baseURL = baseURL.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -176,12 +178,14 @@ public class WeatherAppManager {
         return baseURL
     }
     
-    // if found, get the image from cache
+    // If found, get the image from cache.
+    // Can this be made a public method? If required, a view controller can check by passing the image ID!
     fileprivate func isImageCached(icon: String) -> Bool {
         return FileManager.default.fileExists(atPath: icon)
     }
     
-    // save the image in cache folder
+    // Save the image in cache folder:
+    // Can this be made a public method? If a view controller wants to save any image from any other module!
     fileprivate func saveImage(data : Data, iconName icon: String) {
         let cache = FileManager.cacheDir() as String
         let folder = cache.appending("/Image") as String
