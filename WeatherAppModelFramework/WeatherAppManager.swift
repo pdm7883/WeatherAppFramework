@@ -8,13 +8,13 @@
 import Foundation
 
 // Test class method access
-public func classMethod() {
+public func testPrintClassMethod() {
     print("Hello Class Method.")
 }
 
 public class WeatherAppManager {
     // Test instance method access
-    public func hello() {
+    public func testPrintInstanceMethod() {
         print("Hello Instance Method.")
     }
     
